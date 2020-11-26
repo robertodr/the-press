@@ -5,6 +5,7 @@ let
 in
 pkgs.dockerTools.buildImage {
   name = "the-press";
+  tag = "latest";
   contents = with pkgs; [
     git
     git-latexdiff
