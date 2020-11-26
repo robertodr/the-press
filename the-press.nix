@@ -4,6 +4,7 @@ let
   pkgs = import sources.nixpkgs { inherit system; };
 in
 pkgs.dockerTools.buildImage {
+  name = "foofoo";
   contents = pkgs.hello;
   config.Cmd = [ "/bin/hello" ];
 }
