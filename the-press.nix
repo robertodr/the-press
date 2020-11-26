@@ -6,6 +6,7 @@ in
 pkgs.dockerTools.buildImage {
   name = "the-press";
   contents = with pkgs; [
+    git
     git-latexdiff
     haskellPackages.pandoc-citeproc
     haskellPackages.pandoc-crossref
@@ -41,6 +42,5 @@ pkgs.dockerTools.buildImage {
     #      ;
     #  }
     #)
-    tikzit
   ];
 }
