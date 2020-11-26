@@ -32,7 +32,12 @@ jobs:
         with:
           name: the-press
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-          
+
+      - name: Make some space
+        run: |
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+
       - name: Build image with Nix
         run: nix-build the-press.nix --cores $(nproc --all)
 
