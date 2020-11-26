@@ -39,7 +39,7 @@ jobs:
       - name: Log into registry
         run: echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Push image
+      - name: Build and push image
         run: |
           # Build image with nix and load it immediately
           docker load < $(nix-build the-press.nix)
