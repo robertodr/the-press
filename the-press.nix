@@ -4,7 +4,7 @@ let
   pkgs = import sources.nixpkgs { inherit system; };
 in
 pkgs.dockerTools.buildImage {
-  name = "docker.pkg.github.com/robertodr/the-press/the-press";
+  name = "the-press";
   contents = pkgs.hello;
   config.Cmd = [ "/bin/hello" ];
 }
