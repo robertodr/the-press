@@ -31,16 +31,15 @@ jobs:
           name: the-press
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
-      - name: Make some space
-        run: |
-          sudo rm -rf "/usr/local/share/boost"
-          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-
       - name: Log into registry
         run: echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Build and push image
         run: |
+          # Make some space
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+
           # Build image with nix and load it immediately
           docker load < $(nix-build the-press.nix)
 
