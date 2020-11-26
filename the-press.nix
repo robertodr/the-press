@@ -12,10 +12,10 @@ pkgs.dockerTools.buildImage {
     haskellPackages.pandoc-crossref
     pandoc
     tectonic
-    #(
-    #  texlive.combine {
-    #    inherit (texlive)
-    #      collection-basic
+    (
+      texlive.combine {
+        inherit (texlive)
+          collection-basic
     #      collection-bibtexextra
     #      collection-binextra
     #      collection-context
@@ -28,7 +28,7 @@ pkgs.dockerTools.buildImage {
     #      collection-langfrench
     #      collection-langitalian
     #      collection-langother
-    #      collection-latex
+          collection-latex
     #      collection-latexextra
     #      collection-latexrecommended
     #      collection-luatex
@@ -38,9 +38,9 @@ pkgs.dockerTools.buildImage {
     #      collection-plaingeneric
     #      collection-pstricks
     #      collection-publishers
-    #      collection-xetex
-    #      ;
-    #  }
-    #)
+          collection-xetex
+          ;
+      }
+    )
   ];
 }
