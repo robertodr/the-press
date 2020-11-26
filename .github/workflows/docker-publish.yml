@@ -31,6 +31,9 @@ jobs:
       - name: Build image with Nix
         run: nix-build the-press.nix --cores $(nproc --all)
 
+      - name: Load the image
+        run: docker load -i result
+
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
