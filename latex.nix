@@ -4,14 +4,9 @@ let
   pkgs = import sources.nixpkgs { inherit system; };
 in
 pkgs.dockerTools.buildImage {
-  name = "the-press";
+  name = "the-press-latex";
   tag = "latest";
   contents = with pkgs; [
-    git
-    haskellPackages.pandoc-citeproc
-    haskellPackages.pandoc-crossref
-    pandoc
-    tectonic
     (
       texlive.combine {
         inherit (texlive)

@@ -11,7 +11,7 @@ on:
       - v*
 
 env:
-  IMAGE_NAME: the-press
+  IMAGE_NAME: the-press-latex
 
 jobs:
   push:
@@ -41,7 +41,7 @@ jobs:
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
 
           # Build image with nix and load it immediately
-          docker load < $(nix-build the-press.nix)
+          docker load < $(nix-build latex.nix)
 
           # Get the ID
           IMAGE_ID=ghcr.io/${{ github.actor }}/$IMAGE_NAME
