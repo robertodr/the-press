@@ -4,7 +4,7 @@ let
   pkgs = import sources.nixpkgs { inherit system; };
 in
 pkgs.dockerTools.buildImage {
-  name = "the-press-latex";
+  name = "the-press-texlive";
   tag = "latest";
   contents = with pkgs; [
     (

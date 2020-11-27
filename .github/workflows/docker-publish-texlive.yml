@@ -1,4 +1,4 @@
-name: Create LaTeX Docker container
+name: Create TeXLive Docker container
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
       - v*
 
 env:
-  IMAGE_NAME: the-press-latex
+  IMAGE_NAME: the-press-texlive
 
 jobs:
   push:
@@ -41,7 +41,7 @@ jobs:
           sudo rm -rf "$AGENT_TOOLSDIRECTORY"
 
           # Build image with nix and load it immediately
-          docker load < $(nix-build latex.nix)
+          docker load < $(nix-build texlive.nix)
 
           # Get the ID
           IMAGE_ID=ghcr.io/${{ github.actor }}/$IMAGE_NAME
