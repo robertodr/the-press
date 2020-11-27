@@ -1,4 +1,4 @@
-name: Docker
+name: Create LaTeX Docker container
 
 on:
   push:
