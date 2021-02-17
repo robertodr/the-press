@@ -7,11 +7,11 @@ pkgs.dockerTools.buildImage {
   name = "the-press";
   tag = "latest";
   contents = with pkgs; [
+    haskellPackages.pandoc-citeproc
+    haskellPackages.pandoc-crossref
+    pandoc
     (
-      haskellPackages.pandoc-citeproc
-        haskellPackages.pandoc-crossref
-        pandoc
-        texlive.combine
+      texlive.combine
         {
           inherit (texlive)
             collection-basic
